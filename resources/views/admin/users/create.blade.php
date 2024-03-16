@@ -6,11 +6,11 @@
 
     <div class="row">
         <div class="col-md-6 offset-md-3">
-{{--            @include('partials.form-errors')--}}
-            {!! Form::open(['method' => 'POST', 'action'=> 'Admin\AdminUserController@store', 'files'=>true]) !!}
-            <div class="form-group">
+{{--  <div class="form-group">
                 {!! Form::label('name', 'نام و نام خانوادگی:') !!}
-                {!! Form::text('name', null, ['class'=>'form-control']) !!}
+                       @include('partials.form-errors')--}}
+            {!! Form::open(['method' => 'POST', 'action'=> 'Admin\AdminUserController@store', 'files'=>true]) !!}
+               {!! Form::text('name', null, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('email', 'ایمیل:') !!}
