@@ -6,9 +6,9 @@
 
     <div class="row">
         <div class="col-md-6 offset-md-3">
-{{--  <div class="form-group">
+  <div class="form-group">
                 {!! Form::label('name', 'نام و نام خانوادگی:') !!}
-                       @include('partials.form-errors')--}}
+{{--                       @include('partials.form-errors')--}}
             {!! Form::open(['method' => 'POST', 'action'=> 'Admin\AdminUserController@store', 'files'=>true]) !!}
                {!! Form::text('name', null, ['class'=>'form-control']) !!}
             </div>
@@ -34,6 +34,10 @@
             </div>
             <div class="form-group">
                 {!! Form::submit('ذخیره', ['class'=>'btn btn-success']) !!}
+            </div>
+            {!! Form::open(['method' => 'DELETE', 'action'=> ['Admin\AdminUserController@destroy', $user->id]]) !!}
+            <div class="form-group">
+            {!! Form::submit('حذف', ['class'=>'btn btn-danger col-md-3']) !!}
             </div>
             {!! Form::close() !!}
         </div>

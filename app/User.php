@@ -35,4 +35,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function photo()
+    {
+        return $this->belongsTo(Photo::class);
+    }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles as $role){
+            if($role->name == 'مدیر' && $this->status == 1){
+                return true;
+            }
+        }
+        return false;
+    }
 }

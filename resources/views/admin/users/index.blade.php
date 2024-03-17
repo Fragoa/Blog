@@ -2,6 +2,21 @@
 
 
 @section('content')
+    @if(Session::has('delete_user'))
+        <div class="alert alert-danger">
+            <div>{{session('delete_user')}}</div>
+        </div>
+    @endif
+    @if(Session::has('add_user'))
+        <div class="alert alert-success">
+            <div>{{session('add_user')}}</div>
+        </div>
+    @endif
+    @if(Session::has('update_user'))
+        <div class="alert alert-success">
+            <div>{{session('update_user')}}</div>
+        </div>
+    @endif
 
     <table class="table table-hover">
         <thead>
@@ -17,7 +32,8 @@
         <tbody>
         @foreach($users as $user)
             <tr>
-                <td>{{$user->name}}</td>
+                <td><img src="{{$user->photo ? $user->photo->path : "http://www.placehold.it/400" }}" class="img-fluid" width="80"></td>
+                <td><a href="{{route('users.edit',$user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
                <td>
                      <ui  >

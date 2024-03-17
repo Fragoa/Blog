@@ -14,7 +14,7 @@ class AddAvatarToUsersTables extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('photo_id')->unsigned();
+            $table->integer('photo_id')->unsigned()->nullable();
         });
     }
 
